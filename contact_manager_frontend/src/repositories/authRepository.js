@@ -8,4 +8,9 @@ const login = async (payload) => {
     });
 };
 
-export const authRepository = { login };
+const me = async () => {
+    return await client.exec(`${API_URLS.AUTH}/me`, {
+        method: "POST",
+    });
+};
+export const authRepository = { login, me };

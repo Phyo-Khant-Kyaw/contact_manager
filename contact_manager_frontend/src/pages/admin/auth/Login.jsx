@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState  } from "react";
+import { useNavigate } from "react-router-dom";
 import { LoginForm } from "../../../components/login-form";
 import { authRepository } from "../../../repositories/authRepository";
 
 const Login = () => {
+    const navigate = useNavigate();
     const [alert, setAlert] = useState(false);
     const [text, setText] = useState("");
     const [isError, setIsError] = useState(false);
@@ -14,6 +16,7 @@ const Login = () => {
             localStorage.setItem("access_token", response?.access_token);
             setText("Login successful!");
             setIsError(false);
+            navigate("/dashboard")
         } else {
             setText(response?.error || "Login failed");
             setIsError(true);

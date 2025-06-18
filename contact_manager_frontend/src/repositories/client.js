@@ -21,7 +21,6 @@ const exec = async (endPoint, config) => {
 
 const execFormData = async (endPoint, method, formData) => {
     const token = localStorage.getItem("access_token");
-    console.log(token);
     const baseURL = import.meta.env.VITE_APP_API_BASE_URL;
 
     const response = await fetch(`${baseURL}${endPoint}`, {
